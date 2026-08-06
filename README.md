@@ -1,6 +1,6 @@
 # Nexus — AI-Powered Codebase Assistant
 
-Nexus helps developers understand, search, review, and document unfamiliar codebases using Retrieval-Augmented Generation (RAG). Point it at a GitHub repository or upload a ZIP, and it indexes the code into a vector store so you can chat with it, ask "where should I add X?", get an AI code review, decode a stack trace, or generate documentation — all grounded in the actual repository content, not general knowledge.
+Nexus helps developers understand, search, review, and document unfamiliar codebases using Retrieval-Augmented Generation (RAG). Point it at a GitHub repository or upload a ZIP, and it indexes the code into a vector store so you can chat with it, ask "where should I add X?", get an AI code review, decode a stack trace, or generate documentation - all grounded in the actual repository content, not general knowledge.
 
 ## Table of Contents
 
