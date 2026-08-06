@@ -1,0 +1,14 @@
+[run]
+source = app
+omit =
+    app/db/base.py
+    */__init__.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if TYPE_CHECKING:
+    raise NotImplementedError
+    def __repr__
+show_missing = True
+precision = 1

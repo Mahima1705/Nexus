@@ -1,0 +1,13 @@
+# Optional: only needed to actually run EMBEDDING_PROVIDER=bge (local embeddings,
+# no API key required). Not installed by default — see the comment in
+# requirements.txt for why. Install with:
+#   pip install -r requirements-bge.txt
+#
+# On a machine with no GPU, install a CPU-only torch FIRST to avoid pulling the
+# full CUDA toolkit (several GB, as pip would otherwise resolve by default):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements-bge.txt
+
+-r requirements.txt
+
+sentence-transformers==3.2.1

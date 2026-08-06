@@ -1,0 +1,60 @@
+# --- Web framework (verified: Milestone 2) ---
+fastapi==0.139.2
+uvicorn[standard]==0.51.0
+python-multipart==0.0.32
+
+# --- Settings / validation (verified: Milestone 2) ---
+pydantic==2.13.4
+pydantic-settings==2.14.2
+email-validator==2.3.0
+
+# --- Database (verified: Milestone 3) ---
+sqlalchemy==2.0.51
+alembic==1.18.5
+asyncpg==0.31.0
+psycopg2-binary==2.9.12
+
+# --- Auth / security (verified: Milestone 4) ---
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
+# Pinned: passlib 1.7.4's bcrypt backend self-test breaks on bcrypt>=4.1 (removed
+# internals passlib probes for). 4.0.1 is the last release confirmed compatible.
+bcrypt==4.0.1
+
+# --- Rate limiting / HTTP (verified: Milestone 4) ---
+slowapi==0.1.10
+httpx==0.28.1
+tenacity==9.1.4
+
+# --- Repository processing (verified: Milestone 5) ---
+gitpython==3.1.55
+
+# --- AI / RAG (verified: Milestone 8-10) ---
+# All LLM/embedding calls go through LangChain (ChatOpenAI, ChatAnthropic,
+# OpenAIEmbeddings, HuggingFaceEmbeddings) — see app/ai/providers and
+# app/ai/embeddings. anthropic/openai below are langchain-{anthropic,openai}'s
+# own underlying SDK dependencies, not called directly by our code.
+langchain-core==1.5.1
+langchain-openai==1.4.1
+langchain-anthropic==1.5.1
+langchain-huggingface==1.2.2
+anthropic==0.119.0
+openai==2.48.0
+qdrant-client==1.18.0
+tiktoken==0.13.0
+# BGE embeddings (app/ai/embeddings/bge_embeddings.py, EMBEDDING_PROVIDER=bge) need
+# sentence-transformers, which pulls in a multi-GB CUDA-enabled PyTorch — confirmed
+# by an actual Docker build (860s and several GB just for that one package) even
+# though the default EMBEDDING_PROVIDER is "openai" and never imports it (it's a
+# lazy import inside get_embedding_provider(), not a top-level one). Deliberately
+# NOT a default dependency; see requirements-bge.txt.
+
+# --- Testing (verified: Milestone 2-7) ---
+pytest==9.1.1
+pytest-asyncio==1.4.0
+pytest-cov==7.1.0
+aiosqlite==0.22.1
+sentence-transformers
+
+# --- Dev tooling (verified: Milestone 2) ---
+python-dotenv==1.2.2
